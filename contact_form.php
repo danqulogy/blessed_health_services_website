@@ -1,5 +1,5 @@
 <?php
-require("db.php");
+// require("db.php"); // Commented out since we're not using the database
 require("config.php");
 require 'vendor/autoload.php';
 
@@ -63,7 +63,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->send();
         echo json_encode(["status" => "success", "message" => "Thank you for contacting us! We will get back to you shortly."]);
     } catch (Exception $e) {
-        echo json_encode(["status" => "error", "message" => "Failed to send your message. Error: " . $mail->ErrorInfo]);
+        // Log the error but don't expose it to users
+        error_log("PHPMailer Error: " . $mail->ErrorInfo);
+        echo json_encode(["status" => "error", "message" => "Failed to send your message. Please try again later or contact us directly."]);
     }
     /*
     } else {
