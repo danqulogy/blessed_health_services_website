@@ -1,0 +1,41 @@
+# Protect the .htaccess file
+<Files .htaccess>
+  Order Allow,Deny
+  Deny from all
+</Files>
+
+# Protect sensitive files
+<FilesMatch "^(config\.php|db\.php)$">
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>
+
+# Disable directory browsing
+Options -Indexes
+
+# Protect against XSS, clickjacking and other vulnerabilities
+<IfModule mod_headers.c>
+  Header set X-XSS-Protection "1; mode=block"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  # Uncomment the following line in production
+  # Header set Content-Security-Policy "default-src 'self';"
+</IfModule>
+
+# Force HTTPS (uncomment in production)
+# RewriteEngine On
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# PHP error handling
+php_flag display_errors off
+php_value error_reporting E_ALL
+php_value error_log php_errors.log
+
+# Prevent access to test scripts once testing is complete
+# Uncomment these lines after completing setup
+# <FilesMatch "^(test_email\.php|install\.php)$">
+#   Order Allow,Deny
+#   Deny from all
+# </FilesMatch> 
