@@ -1,7 +1,12 @@
 <?php
 // Load environment variables from .env file
-function loadEnv($path = '.env') {
+function loadEnv($path = null) {
+    if ($path === null) {
+        $path = dirname(dirname(__FILE__)) . '/config/.env';
+    }
+    
     if (!file_exists($path)) {
+        error_log("ENV file not found at: " . $path);
         return false;
     }
 

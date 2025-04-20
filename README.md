@@ -1,6 +1,61 @@
 # Blessed Behavioral & Health Services Website
 
-A modern, responsive website for Blessed Behavioral & Health Services, featuring service information, team profiles, testimonials, and a contact form with email notifications.
+This repository contains the codebase for the Blessed Behavioral & Health Services LLC website.
+
+## Project Structure
+
+The project follows a modern, organized directory structure:
+
+```
+blessed_health_services_website/
+├── app/                    # Application backend
+│   ├── config/             # Configuration files
+│   │   └── .env            # Environment variables
+│   ├── handlers/           # Form and request handlers
+│   │   ├── book_appointment.php  # Appointment form handler
+│   │   └── contact_form.php      # Contact form handler
+│   ├── tests/              # Testing utilities
+│   │   ├── send_test_email.php   # Test email sending
+│   │   └── smtp_test.php         # Test SMTP connection
+│   └── utils/              # Utility functions
+│       └── env_loader.php  # Environment variable loader
+├── phpmailer/              # PHPMailer library
+├── public/                 # Publicly accessible files
+│   ├── css/                # Stylesheets
+│   │   └── styles.css      # Main stylesheet
+│   ├── img/                # Images
+│   ├── js/                 # JavaScript files
+│   │   └── script.js       # Main JavaScript file
+│   └── index.php           # Public entry point
+└── index.php               # Main application file
+```
+
+## Setup and Configuration
+
+1. Configure environment variables in `app/config/.env`:
+   - SMTP settings for email functionality
+   - Database settings (if needed)
+
+2. Ensure the webserver points to the `public/` directory as the document root for production environments.
+
+3. For testing email functionality, access:
+   - `app/tests/smtp_test.php` to test SMTP connection
+   - `app/tests/send_test_email.php` to test sending an email
+
+## Features
+
+- Appointment booking system
+- Contact form
+- Responsive design
+- SMTP email integration
+
+## Email Implementation
+
+The website uses PHPMailer to send emails for:
+- Appointment booking confirmations
+- Contact form submissions
+
+All email functionality is configured through environment variables for easy setup across different environments.
 
 ## Table of Contents
 
@@ -31,26 +86,6 @@ This website provides a digital presence for Blessed Behavioral & Health Service
 - Google Maps integration
 - Social media links
 - Mobile-friendly navigation
-
-## Project Structure
-
-```
-blessed_health_services_website/
-├── index.php                 # Main website page
-├── contact_form.php          # Contact form processing script
-├── config.php                # Configuration and settings
-├── db.php                    # Database connection (optional)
-├── create_contact_table.sql  # SQL for contact form table
-├── install.php               # Installation helper script
-├── test_email.php            # Email testing script
-├── script.js                 # JavaScript functionality
-├── styles.css                # Stylesheets
-├── phpmailer/                # PHPMailer library (legacy)
-├── vendor/                   # Composer dependencies
-│   └── autoload.php
-├── composer.json             # Composer configuration
-└── README.md                 # This documentation file
-```
 
 ## Requirements
 

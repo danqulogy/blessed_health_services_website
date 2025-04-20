@@ -985,7 +985,7 @@ body.nav-active { overflow: hidden; }
   padding: 50px 36px;
   border-radius: var(--radius-12);
   border: 2px solid var(--alice-blue);
-  background-image: url('img/about-me.jpg');
+  background-image: url('../img/about-me.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -2112,7 +2112,7 @@ body.nav-active { overflow: hidden; }
 .testimonials {
   position: relative;
   padding: 60px 20px;
-  background-image: url('img/darkBg.jpg'); /* Optional background image */
+  background-image: url('../img/darkBg.jpg'); /* Optional background image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

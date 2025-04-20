@@ -16,12 +16,12 @@
       href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="public/css/styles.css" />
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     
     <script
       type="module"
@@ -49,7 +49,7 @@
           <div class="navbar-container">
             <!-- Logo -->
             <a href="index.php" class="navbar-logo">
-              <img src="img/IMG_2.JPG" width="150" height="50" alt="Main Logo" />
+              <img src="public/img/IMG_2.JPG" width="150" height="50" alt="Main Logo" />
             </a>
 
             <!-- Navigation Links -->
@@ -105,8 +105,7 @@
             <figure class="hero-banner" data-animate="fade-in">
               <div class="image-container">
                 <img
-                  src="img/IMG_1714.JPG
-                  "
+                  src="public/img/IMG_1714.JPG"
                   width="590"
                   height="517"
                   loading="eager"
@@ -246,7 +245,7 @@
               <div class="image-slider">
                 <div class="slide active">
                   <img
-                    src="img/IMG_5.JPG"
+                    src="public/img/IMG_5.JPG"
                     alt="Dr. Emma Markey"
                     class="about-image"
                     width="300"
@@ -255,7 +254,7 @@
                 </div>
                 <div class="slide">
                   <img
-                    src="img/IMG_1.JPG"
+                    src="public/img/IMG_1.JPG"
                     alt="Dr. Emma Markey"
                     class="about-image"
                     width="300"
@@ -264,7 +263,7 @@
                 </div>
                 <div class="slide">
                   <img
-                    src="img/IMG_1714.JPG"
+                    src="public/img/IMG_1714.JPG"
                     alt="Dr. Emma Markey"
                     class="about-image"
                     width="300"
@@ -458,7 +457,7 @@
                 <div class="service-card" data-reveal="bottom">
                   <div class="image-container">
                     <img
-                      src="img/psychaitric.jpeg"
+                      src="public/img/psychaitric.jpeg"
                       alt="Psychiatric Care"
                       class="service-image"
                       width="300"
@@ -479,7 +478,7 @@
                 <div class="service-card" data-reveal="bottom">
                   <div class="image-container">
                     <img
-                      src="img/truama.jpeg"
+                      src="public/img/truama.jpeg"
                       alt="Trauma Therapy"
                       class="service-image"
                       width="300"
@@ -500,7 +499,7 @@
                 <div class="service-card" data-reveal="bottom">
                   <div class="image-container">
                     <img
-                      src="img/medicine.jpeg"
+                      src="public/img/medicine.jpeg"
                       alt="Medication Management"
                       class="service-image"
                       width="300"
@@ -521,7 +520,7 @@
                 <div class="service-card" data-reveal="bottom">
                   <div class="image-container">
                     <img
-                      src="img/Tele.jpeg"
+                      src="public/img/Tele.jpeg"
                       alt="TeleHealth"
                       class="service-image"
                       width="300"
@@ -664,7 +663,7 @@
             </h2>
             <div class="doctor-card">
               <img
-                src="img/IMG_1714.JPG"
+                src="public/img/IMG_1714.JPG"
                 alt="Dr. Emma Markey"
                 class="doctor-image"
                 width="200"
@@ -727,7 +726,7 @@
               <strong>Working Days:</strong> Monday to Friday
             </p>
 
-            <form id="booking-form" class="booking-form">
+            <form id="booking-form" class="booking-form" action="app/handlers/book_appointment.php" method="POST">
               <div class="form-group">
                 <label for="name" class="form-label">Full Name</label>
                 <input type="text" id="name" name="name" class="input-field" placeholder="Enter your full name" required />
@@ -789,7 +788,7 @@
                 </p>
                 <div class="testimonial-author">
                   <img
-                    src="img/DaveShoot.JPG"
+                    src="public/img/DaveShoot.JPG"
                     alt="Nora"
                     class="testimonial-author-image"
                   />
@@ -805,7 +804,7 @@
                 </p>
                 <div class="testimonial-author">
                   <img
-                    src="img/nora.jpeg"
+                    src="public/img/nora.jpeg"
                     alt="Jane Smith"
                     class="testimonial-author-image"
                   />
@@ -821,7 +820,7 @@
                 </p>
                 <div class="testimonial-author">
                   <img
-                    src="img/Victor.jpeg"
+                    src="public/img/Victor.jpeg"
                     alt="Michael Johnson"
                     class="testimonial-author-image"
                   />
@@ -958,7 +957,7 @@
 
     <footer
       class="footer"
-      style="background-image: url('img/footer.jpeg');"
+      style="background-image: url('public/img/footer.jpeg');"
     >
       <div class="overlay"></div>
       <div class="container">
@@ -968,7 +967,7 @@
           <div class="footer-brand">
             <a href="#" class="logo logoH">
               <img
-                src="img/IMG_2.JPG"
+                src="public/img/IMG_2.JPG"
                 width="136"
                 height="46"
                 alt="Blessed Behavioral & Health Services"
@@ -979,7 +978,7 @@
           <!-- Contact Form Section -->
           <div class="footer-contact-form">
             <h3 class="footer-form-title">Get in Touch</h3>
-            <form action="contact_form.php" method="POST" id="footer-contact-form" class="contact-form">
+            <form action="app/handlers/contact_form.php" method="POST" id="footer-contact-form" class="contact-form">
               <div class="form-group">
                 <label for="footer-name" class="form-label">Full Name</label>
                 <input type="text" id="footer-name" name="name" class="input-field" placeholder="Enter your full name" required />
@@ -1131,6 +1130,6 @@
     >
       <ion-icon name="chevron-up"></ion-icon>
     </a>
-    <script src="script.js"></script>
+    <script src="public/js/script.js"></script>
   </body>
 </html>

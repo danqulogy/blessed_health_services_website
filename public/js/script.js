@@ -469,7 +469,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // If all validations pass, submit the form via AJAX
     const formData = new FormData(bookingForm);
 
-    fetch("book_appointment.php", {
+    fetch("app/handlers/book_appointment.php", {
       method: "POST",
       body: formData,
     })
@@ -635,7 +635,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const formData = new FormData(contactForm);
 
     // Send form data using AJAX
-    fetch("contact_form.php", {
+    fetch("app/handlers/contact_form.php", {
       method: "POST",
       body: formData,
     })
