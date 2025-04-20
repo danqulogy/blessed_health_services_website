@@ -81,7 +81,7 @@
         <section class="section hero" aria-label="home">
           <div class="video-background">
             <video autoplay muted loop playsinline>
-              <source src="video/bgHe.mp4" type="video/mp4" />
+              <source src="public/video/bgHe.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
@@ -703,7 +703,7 @@
             </h2>
             <div class="video-container" style="text-align: center; margin-top: 20px;">
               <video controls width="80%" style="border-radius: 10px;">
-                <source src="video/ACC.mp4" type="video/mp4" />
+                <source src="public/video/ACC.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>

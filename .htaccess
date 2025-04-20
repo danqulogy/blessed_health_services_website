@@ -5,13 +5,16 @@
 </Files>
 
 # Protect sensitive files
-<FilesMatch "^(config\.php|db\.php)$">
+<FilesMatch "^(config\.php|db\.php|\.env)$">
   Order Allow,Deny
   Deny from all
 </FilesMatch>
 
 # Disable directory browsing
 Options -Indexes
+
+# Enable rewrite engine
+RewriteEngine On
 
 # Protect against XSS, clickjacking and other vulnerabilities
 <IfModule mod_headers.c>
@@ -24,7 +27,6 @@ Options -Indexes
 </IfModule>
 
 # Force HTTPS (uncomment in production)
-# RewriteEngine On
 # RewriteCond %{HTTPS} !=on
 # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
@@ -35,7 +37,55 @@ php_value error_log php_errors.log
 
 # Prevent access to test scripts once testing is complete
 # Uncomment these lines after completing setup
-# <FilesMatch "^(test_email\.php|install\.php)$">
+# <FilesMatch "^(test_email\.php|send_test_email\.php|smtp_test\.php)$">
 #   Order Allow,Deny
 #   Deny from all
-# </FilesMatch> 
+# </FilesMatch>
+
+# Prevent access to Composer files
+<FilesMatch "^(composer\.json|composer\.lock)$">
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>
+
+# Prevent access to app directory
+<FilesMatch "^app/.*$">
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>
+
+# Enable caching for static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  
+  # Images
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  
+  # Video
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType video/webm "access plus 1 year"
+  
+  # CSS, JavaScript
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  
+  # Fonts
+  ExpiresByType font/ttf "access plus 1 year"
+  ExpiresByType font/otf "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  
+  # Default
+  ExpiresDefault "access plus 2 days"
+</IfModule>
+
+# Enable GZIP compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml
+</IfModule> 
