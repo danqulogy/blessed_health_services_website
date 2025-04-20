@@ -1,10 +1,15 @@
 {
     "name": "sony/blessedandhealthservicewebsite",
     "description": "A professional website for Blessed Behavioral & Health Services LLC, showcasing healthcare services, team members, and providing appointment booking and contact functionality.",
+    "type": "project",
+    "license": "proprietary",
     "autoload": {
         "psr-4": {
-            "Sony\\Blessedandhealthservicewebsite\\": "src/"
-        }
+            "App\\": "app/"
+        },
+        "files": [
+            "app/utils/env_loader.php"
+        ]
     },
     "authors": [
         {
@@ -20,13 +25,24 @@
         }
     ],
     "require": {
+        "php": ">=7.4",
         "egulias/email-validator": "*",
         "phpmailer/phpmailer": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
     },
     "scripts": {
         "dev": "php -S localhost:6060",
         "dev:public": "php -S localhost:6060 -t public",
         "test:smtp": "php app/tests/smtp_test.php",
-        "test:email": "php app/tests/send_test_email.php"
+        "test:email": "php app/tests/send_test_email.php",
+        "post-install-cmd": [
+            "@php -r \"file_exists('app/config/.env') || copy('app/config/.env.example', 'app/config/.env');\""
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
     }
 }

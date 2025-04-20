@@ -67,7 +67,8 @@ blessed_health_services_website/
    ```
    composer install
    ```
-3. Configure environment variables in `app/config/.env` with your SMTP settings
+   This will automatically create the `.env` file from `.env.example` template.
+3. Configure environment variables in `app/config/.env` (see [ENV_SETUP.md](ENV_SETUP.md) for details)
 4. Ensure server permissions are correctly set
 
 ## Development

@@ -1,0 +1,64 @@
+# Environment files
+.env
+*.env
+.env.local
+.env.*.local
+app/config/.env
+
+# Composer dependencies
+/vendor/
+composer.phar
+
+# PHPUnit
+/phpunit.xml
+.phpunit.result.cache
+
+# PHP error logs
+php_errors.log
+error_log
+*.log
+
+# Cache and generated files
+*.cache
+.php_cs.cache
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE and editor folders
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*~
+.project
+.buildpath
+.settings/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.lock
+!composer.lock
+
+# Uploaded files (if not in version control)
+/uploads/
+/public/uploads/
+
+# Server configuration files that might contain sensitive information
+.htpasswd
+*.pem
+*.key
+*.crt
+
+# Database files
+*.sql
+*.sqlite
+*.db 
