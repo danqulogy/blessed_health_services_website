@@ -1,9 +1,9 @@
 <?php
+// Including PHPMailer via Composer's autoloader
+require_once dirname(dirname(dirname(__FILE__))) . '/vendor/autoload.php';
+
 // Simple test script to check SMTP connection
 require_once dirname(dirname(__FILE__)) . '/utils/env_loader.php';
-require_once dirname(dirname(dirname(__FILE__))) . '/phpmailer/src/PHPMailer.php';
-require_once dirname(dirname(dirname(__FILE__))) . '/phpmailer/src/SMTP.php';
-require_once dirname(dirname(dirname(__FILE__))) . '/phpmailer/src/Exception.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
