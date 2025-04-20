@@ -473,18 +473,25 @@ document.addEventListener("DOMContentLoaded", function () {
       method: "POST",
       body: formData,
     })
-      .then((response) => response.text())
+      .then((response) => response.json())
       .then((data) => {
+        // Log email status to console
+        console.log("Appointment booking status:", data.status);
+        console.log("Debug info:", data.debug);
+        
         // Show success or error message in the modal
-        modalMessage.textContent = data.includes("successfully")
-          ? "Your appointment has been booked successfully! A confirmation email will be sent shortly."
-          : "There was an error booking your appointment. Please try again.";
-        modalIcon.textContent = data.includes("successfully") ? "✔️" : "❌";
+        modalMessage.textContent = data.message;
+        modalIcon.textContent = data.status === "success" ? "✔️" : "❌";
         bookingModal.classList.remove("hidden");
         bookingModal.classList.add("visible");
-        bookingForm.reset(); // Clear the form fields
+        if (data.status === "success") {
+          bookingForm.reset(); // Clear the form fields only on success
+        }
       })
       .catch((error) => {
+        // Log the error to console
+        console.error("Appointment booking error:", error);
+        
         // Show error message in the modal
         modalMessage.textContent = "An unexpected error occurred. Please try again.";
         modalIcon.textContent = "❌";
@@ -634,6 +641,10 @@ document.addEventListener("DOMContentLoaded", function () {
     })
       .then((response) => response.json()) // Parse the JSON response
       .then((data) => {
+        // Log contact form status to console
+        console.log("Contact form submission status:", data.status);
+        console.log("Debug info:", data.debug);
+        
         // Check the response status
         if (data.status === "success") {
           modalMessage.textContent = data.message;
@@ -648,7 +659,10 @@ document.addEventListener("DOMContentLoaded", function () {
         contactModal.classList.remove("hidden");
         contactModal.classList.add("visible");
       })
-      .catch(() => {
+      .catch((error) => {
+        // Log the error to console
+        console.error("Contact form submission error:", error);
+        
         // Handle unexpected errors
         modalMessage.textContent = "An unexpected error occurred. Please try again.";
         modalIcon.textContent = "❌"; // Error emoji
