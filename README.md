@@ -6,6 +6,18 @@ A professional website for Blessed Behavioral & Health Services LLC, a healthcar
 
 This website showcases the services offered by Dr. Emma Markey (DNP, FNP, PMHNP) and provides a platform for patients to learn about available healthcare options and book appointments.
 
+## Quick Start
+
+```bash
+# Install dependencies
+composer install
+
+# Start development server (port 6060)
+composer dev
+
+# Access the website at http://localhost:6060
+```
+
 ## Features
 
 - Responsive design for all devices
@@ -43,7 +55,7 @@ blessed_health_services_website/
 │   └── video/              # Video files
 ├── vendor/                 # Composer dependencies
 ├── .htaccess               # Apache configuration
-├── composer.json           # Composer configuration
+├── composer.json           # Composer configuration & scripts
 ├── favicon.ico             # Website favicon
 └── index.php               # Main application file
 ```
@@ -57,6 +69,20 @@ blessed_health_services_website/
    ```
 3. Configure environment variables in `app/config/.env` with your SMTP settings
 4. Ensure server permissions are correctly set
+
+## Development
+
+Start the development server on port 6060:
+```
+composer dev
+```
+
+To serve only from the public directory (simulating production):
+```
+composer dev:public
+```
+
+Access the website at http://localhost:6060
 
 ## Email Configuration
 
@@ -72,6 +98,14 @@ The website uses PHPMailer for sending emails from the contact form and appointm
 ## Testing
 
 Test the email functionality using the included test scripts:
+
+Using Composer:
+```
+composer test:smtp    # Test SMTP connection
+composer test:email   # Test sending an email
+```
+
+Or access directly:
 - `app/tests/smtp_test.php` - Tests SMTP connection
 - `app/tests/send_test_email.php` - Tests sending a test email
 
